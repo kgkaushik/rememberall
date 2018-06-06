@@ -1,0 +1,57 @@
+name_list = {}
+que_dic = {}
+tempquedic = {"what is your name?": "He calls me \'LOC ai\' (Local Artificial intelligence Imitant)",
+              "who is he":" He is an imaginator, I am not authorised to reveal his name",
+              "what are you?":"I am a local artifical intelligence imitant, I imitate my seniors. I am learning",
+              "what can you do for me?":"Talk, I can just talk! now"}
+
+#The artificial intelligence imitator
+#The software will ask for the commands, with a quirky answer
+
+#input and decode function
+def ai():
+    print("Hey! Mind telling me your name?")
+    name = input()
+    if name in name_list.keys():
+        print("Welcome back {}".format(name))
+    else:
+        print("Hey {} We've got you covered.".format(name))
+        print("Do you have any questions?")
+        print("I'm new, but can answer a few, can't solve puzzles, but can make you one! ;)")
+    if name in name_list.keys():
+        print("Your question please")
+        quet1 = input()
+        if (quet1 in name_list[name].keys()) or (quet1 in tempquedic.keys()):
+            try:
+                print(name_list[name][quet1])
+            except KeyError:
+                print(tempquedic[quet1])
+            except KeyError:
+                print("Data not available")
+        else:
+            print("You never asked me that question, the answer please")
+            name_list[name][quet1] = input()
+            print("We are done here for now, please login again to see your answer")
+    else:
+        print("Your first question please")
+        quet1 = input()
+        if quet1 in tempquedic.keys():
+            print(tempquedic[quet1])
+            print("This is a core question,please try a different one")
+        else:
+            print("Your answer please")
+            ans1 = input()
+            name_list[name] = {}
+            name_list[name][quet1] = ans1
+            
+        #check if the name already exists in the list
+        #ifyes ask for password
+        #then carry the question answer sequence
+        #if not exists, ask for a user sign up
+        #add the name to the list
+        #and add the 
+        #add a password to secure its passcode
+    print("Already attracted? Wanna play more?")
+    ansnow = input()
+    if (ansnow == "Yes") or (ansnow == "yes"):
+        ai()
